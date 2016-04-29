@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+		<title></title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	    <script type="text/javascript" src="assets/js/tabletop1.3.4.js"></script>
+	    <script type="text/javascript" src='assets/js/sheetsee.js'></script>
+	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<style>
+
+		body {
+
+			font-family: 'Open Sans';
+			font-size:1.2em;
+			color: #000;
+
+
+		}
+
+		p {
+
+			line-height:1.2em;
+			margin:0;
+
+		}
+
+		a {
+
+			text-decoration: none;
+			font-weight:bold;
+			color: #000;
+
+		}
+
+		.description {
+
+			font-size: 1em;
+			line-height:1.2em;
+			font-style: italic;
+			font-weight:200;
+
+		}
+
+		</style>
+
+
+	</head>
+
+	<body>
+
+		<h1>My Public Bookmarks</h1>
+
+		<div id="texthere"></div>
+
+		<script type="text/javascript">
+
+			document.addEventListener('DOMContentLoaded', function() {
+
+			    var URL = "***your spreadsheet url here***"
+
+			    Tabletop.init( { key: URL, callback: myData, simpleSheet: true } )
+
+			})
+
+			function myData(data) {
+
+	        	for (var i = 0; i < data.length; i++){
+
+	        		$( "#texthere" ).append( "<a href='" + data[i].link + "'>" + "<p>" + data[i].title + "</p></a><p class='description'>" + data[i].description + "</p><br>");
+
+	        	}
+
+	    	}
+
+	  	</script>
+
+	</body>
+
+</html>
